@@ -3,6 +3,7 @@ import { User } from "../entities/user.js";
 
 export async function postUsersController(req, res, next) {
     const datosUsuario = req.body;
+    console.log(datosUsuario);
     try {
         const result = await usersManager.addUser(datosUsuario);
         res.json(result);
