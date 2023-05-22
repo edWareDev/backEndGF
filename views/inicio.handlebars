@@ -1,0 +1,58 @@
+<h1>Global Fiber</h1>
+<div class="container">
+    <div class="productsContainer">
+        <h2>Listado de Productos</h2>
+        {{#if hayUsers}}
+        <ul>
+            <li>
+                <article class="card">
+                    <div class="card--data">
+                        <h3><u>NOMBRE</u></h3>
+                        <h3><u>DNI</u></h3>
+                        <h3><u>TELEFONO</u></h3>
+                        <h3><u>GÉNERO</u></h3>
+                        <h3><u>NACIMIENTO</u></h3>
+                        <h3><u>DIRECCIÓN</u></h3>
+                    </div>
+                    <div class="card--buttons">
+                        <button class="editProduct" disabled>
+                            Editar
+                        </button>
+                        <button class="editProduct" disabled>
+                            Eliminar
+                        </button>
+                    </div>
+                </article>
+            </li>
+            {{#each allUsers}}
+            <li>
+                <article class="card" id="{{this._id}}">
+                    <div class="card--data">
+                        <h3>{{this.userName}}</h3>
+                        <h3>{{this.userDni}}</h3>
+                        <p>{{this.userPhone}}</p>
+                        <p>{{this.productDescription}}</p>
+                        <p>{{this.productStock}}</p>
+                    </div>
+                    <div class="card--buttons">
+                        <button title="Editar Producto" class="editProduct">
+                            Editar
+                        </button>
+                        <button title="Eliminar Producto" class="deleteProduct">
+                            Eliminar
+                        </button>
+                    </div>
+
+                </article>
+            </li>
+            {{/each}}
+        </ul>
+        {{else}}
+        <p>
+            No hay productos para mostrar
+        </p>
+        {{/if}}
+    </div>
+
+
+    <script src="./js/manageProducts.js"></script>
