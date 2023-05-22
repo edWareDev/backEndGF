@@ -1,7 +1,7 @@
 <h1>Global Fiber</h1>
 <div class="container">
     <div class="productsContainer">
-        <h2>Listado de Productos</h2>
+        <h2>Usuarios con Sesión</h2>
         {{#if hayUsers}}
         <ul>
             <li>
@@ -31,14 +31,15 @@
                         <h3>{{this.userName}}</h3>
                         <h3>{{this.userDni}}</h3>
                         <p>{{this.userPhone}}</p>
-                        <p>{{this.productDescription}}</p>
-                        <p>{{this.productStock}}</p>
+                        <p>{{this.userGender}}</p>
+                        <p>{{this.userDateOfBirth.day}}/{{this.userDateOfBirth.month}}/{{this.userDateOfBirth.year}}</p>
+                        <p>{{this.userAddress.address}}, {{this.userAddress.district}}, {{this.userAddress.state}}, {{this.userAddress.region}}</p>
                     </div>
                     <div class="card--buttons">
-                        <button title="Editar Producto" class="editProduct">
+                        <button title="Editar Producto" class="editProduct" disabled>
                             Editar
                         </button>
-                        <button title="Eliminar Producto" class="deleteProduct">
+                        <button title="Eliminar Producto" class="deleteProduct" disabled>
                             Eliminar
                         </button>
                     </div>

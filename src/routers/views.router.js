@@ -5,7 +5,6 @@ export const viewsRouter = Router()
 
 viewsRouter.get('/', async (req, res, next) => {
     const allUsers = await usersManager.getUsers();
-    console.log(allUsers);
     res.render('inicio', {
         cssName: 'inicio',
         pageTitle: 'Inicio',

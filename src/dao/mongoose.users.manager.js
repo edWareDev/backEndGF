@@ -37,10 +37,6 @@ class UsersManager {
         })
 
         const findUser = await this.#usersDb.findOne({ userDni: newUser.userDni }).lean();
-        console.log(findUser);
-        console.log('--');
-        console.log(newUser);
-        console.log('--');
 
         if (findUser) {
             console.log('Se ha encontrado un usuario con el mismo documento');
@@ -58,7 +54,6 @@ class UsersManager {
                 userDateOfBirth,
                 userAddress
             };
-            console.log(usuarioNuevo);
             const result = await this.#usersDb.findOneAndUpdate({ userDni: newUser.userDni }, usuarioNuevo, { new: true })
 
             return result
