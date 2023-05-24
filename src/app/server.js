@@ -10,7 +10,7 @@ import cors from "cors";
 
 const app = express();
 app.use(cors());
-
+console.log(location);
 app.engine('handlebars', engine())
 app.set('views', './views')
 app.set('view engine', 'handlebars')
