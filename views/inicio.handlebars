@@ -1,59 +1,55 @@
-<h1>Global Fiber</h1>
-<div class="container">
-    <div class="productsContainer">
-        <h2>Usuarios con Sesión</h2>
-        {{#if hayUsers}}
-        <ul>
-            <li>
-                <article class="card">
-                    <div class="card--data">
-                        <h3><u>NOMBRE</u></h3>
-                        <h3><u>DNI</u></h3>
-                        <h3><u>TELEFONO</u></h3>
-                        <h3><u>GÉNERO</u></h3>
-                        <h3><u>NACIMIENTO</u></h3>
-                        <h3><u>DIRECCIÓN</u></h3>
-                    </div>
-                    <div class="card--buttons">
-                        <button class="editProduct" disabled>
-                            Editar
-                        </button>
-                        <button class="editProduct" disabled>
-                            Eliminar
-                        </button>
-                    </div>
-                </article>
-            </li>
-            {{#each allUsers}}
-            <li>
-                <article class="card" id="{{this._id}}">
-                    <div class="card--data">
-                        <h3>{{this.userName}}</h3>
-                        <h3>{{this.userDni}}</h3>
-                        <p>{{this.userPhone}}</p>
-                        <p>{{this.userGender}}</p>
-                        <p>{{this.userDateOfBirth.day}}/{{this.userDateOfBirth.month}}/{{this.userDateOfBirth.year}}</p>
-                        <p>{{this.userAddress.address}}, {{this.userAddress.district}}, {{this.userAddress.state}}, {{this.userAddress.region}}</p>
-                    </div>
-                    <div class="card--buttons">
-                        <button title="Editar Producto" class="editProduct" disabled>
-                            Editar
-                        </button>
-                        <button title="Eliminar Producto" class="deleteProduct" disabled>
-                            Eliminar
-                        </button>
-                    </div>
-
-                </article>
-            </li>
-            {{/each}}
-        </ul>
-        {{else}}
-        <p>
-            No hay registros para mostrar
-        </p>
-        {{/if}}
+<div class="loaderContainer">
+    <div class="loader">
     </div>
-
-
-    <script src="./js/manageProducts.js"></script>
+    <img src="./img/iconwhite.svg" alt="">
+</div>
+<header>
+    <div class="container">
+        <a href="#">
+            <div class="imgContainer">
+                <img src="./img/hrlogo.png" alt="logoGlobalFiber">
+            </div>
+        </a>
+        <h2>USUARIOS CON SESIÓN</h2>
+        <a id="exportXLS" href="./downloads/{{xlsName}}.xlsx" download>
+            <span class="material-symbols-outlined">
+                download
+            </span>
+            <h3><span>EXPORTAR</span> DATOS</h3>
+        </a>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 24%"> <span>NOMBRES Y APELLIDOS</span></th>
+                    <th style="width: 6%">DNI</th>
+                    <th style="width: 10%"><span>TELÉFONO</span></th>
+                    <th style="width: 6%">GÉNERO</th>
+                    <th style="width: 13%"><span>FECHA DE NACIMIENTO</span></th>
+                    <th style="width: 31%">DIRECCIÓN / DISTRITO / PROVINCIA / DEPARTAMENTO</th>
+                </tr>
+            </thead>
+            {{#if hayUsers}}
+            <tbody>
+                {{#each allUsers}}
+                <tr>
+                    <td>{{this.userName}}</td>
+                    <td>{{this.userDni}}</td>
+                    <td>{{this.userPhone}}</td>
+                    <td>{{this.userGender}}</td>
+                    <td>{{this.userDateOfBirth.day}}/{{this.userDateOfBirth.month}}/{{this.userDateOfBirth.year}}
+                    </td>
+                    <td>{{this.userAddress.address}}, {{this.userAddress.district}}, {{this.userAddress.state}},
+                        {{this.userAddress.region}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+            {{/if}}
+        </table>
+    </div>
+</main>
+<script src="./js/loader.js"></script>

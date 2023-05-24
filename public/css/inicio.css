@@ -1,226 +1,193 @@
-.invisible {
-    display: none !important
+.inv {
+  display: none !important;
 }
 
 *,
-*::after,
-*::before {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: sans-serif;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 10px;
 }
-
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 9px;
+  }
+}
+@media only screen and (max-width: 54em) {
+  html {
+    font-size: 8px;
+  }
+}
+@media only screen and (max-width: 42em) {
+  html {
+    font-size: 10px;
+  }
+}
 
 a,
 a:link,
 a:visited {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 img {
-    display: block;
-    user-select: none;
-}
-
-input {
-    outline: none;
+  display: block;
 }
 
 body {
-    background-color: #160040;
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    position: relative;
+  min-height: 100vh;
 }
 
-h1,
-h2 {
-    margin: 0 auto;
-    text-align: center;
-    padding: 1rem;
-    width: 100%;
-    background-color: #4C0070;
-    color: white;
+.loaderContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.loaderContainer .loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #f4d733;
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
+  animation: spin 2s linear infinite;
+  top: 50%;
+}
+.loaderContainer img {
+  position: absolute;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.container {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+header {
+  background-color: rgb(27, 47, 238);
+  width: 100%;
+}
+header .container {
+  display: flex;
+  padding: 0 4rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+header .container a .imgContainer {
+  width: 200px;
+}
+header .container a .imgContainer img {
+  width: 100%;
+}
+header .container h2 {
+  background-color: rgb(82, 115, 255);
+  color: #fff;
+  font-weight: 900;
+  height: 8rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5rem;
+  border-radius: 1rem 0 1rem 0;
+}
+header .container #exportXLS {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4d733;
+  padding: 0 0 0 1rem;
+  gap: 1rem;
+  border-radius: 1rem 0 1rem 0;
+  overflow: hidden;
+}
+header .container #exportXLS .material-symbols-outlined {
+  font-size: 3rem;
+  color: rgb(27, 47, 238);
+}
+header .container #exportXLS h3 {
+  color: rgb(27, 47, 238);
+  font-size: 2rem;
+  font-weight: 300;
+  background-color: #fff;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+header .container #exportXLS h3 span {
+  font-weight: 900;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 main .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: calc(100vw - 30px);
+  margin: 2rem;
+  padding: 5px;
+}
+main .container table {
+  width: 100%;
+  border-collapse: collapse;
+  border-style: hidden;
+  border-bottom: 1px solid rgb(27, 47, 238);
+  padding: 5px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+main .container table thead {
+  background-color: #f4d733;
+  color: rgb(27, 47, 238);
+  border: 1px solid rgb(27, 47, 238);
+}
+main .container table thead th {
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+  border: 2px solid rgb(27, 47, 238);
+  border-bottom: 3px solid rgb(27, 47, 238);
+}
+main .container table thead th span {
+  font-weight: 900;
+}
+main .container table tbody {
+  border-bottom: 3px solid rgb(27, 47, 238);
+}
+main .container table tbody td {
+  border: 2px solid rgb(27, 47, 238);
+  border-bottom: 2px solid rgb(27, 47, 238);
+  text-align: center;
+  padding: 0.4rem 0;
+  font-size: 1.2rem;
 }
 
-main .container .buttons {
-    width: 80%;
-    background-color: #4C0070;
-    padding: 1rem;
-}
-
-main .container .buttons button {
-    background-color: #FFB84C;
-    color: white;
-    font-weight: 600;
-    padding: .5rem 1rem;
-    cursor: pointer;
-}
-
-main .container .formContainer {
-    background-color: #0008;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(2px);
-}
-
-main .container .formContainer .manageProduct {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-main .container .formContainer #formManageProduct {
-    background-color: #4C0070;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    width: 100%;
-    gap: 30px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 2rem;
-}
-
-main .container .formContainer #formManageProduct label {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2px;
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
-    /* border: 1px solid white; */
-}
-
-main .container .formContainer #formManageProduct label input,
-main .container .formContainer #formManageProduct label select {
-    width: 75%;
-    outline: none;
-    padding: 10px;
-}
-
-main .container .formContainer #formManageProduct .formButtons {
-    display: flex;
-    justify-content: space-around;
-}
-
-main .container .formContainer #formManageProduct .formButtons button {
-    width: 40%;
-    color: white;
-    font-size: 1.6rem;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-main .container .formContainer #formManageProduct .formButtons #saveButton {
-    background-color: #9A0680;
-}
-
-main .container .formContainer #formManageProduct .formButtons #cancelButton {
-    background-color: #9a060b;
-}
-
-main .container .productsContainer {
-    width: 80%;
-    gap: 1rem;
-}
-
-main .container .productsContainer ul {
-    background-color: #4C0070;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    width: 100%;
-    gap: 10px;
-    /* margin: auto; */
-    padding: 1rem;
-}
-
-main .container .productsContainer ul li .card {
-    display: flex;
-    width: 100%;
-    border-bottom: 1px solid white;
-}
-
-main .container .productsContainer ul li .card .card--data {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 4fr 2fr 2fr 1fr 1fr 2fr;
-    /* grid-template-rows: 1fr; */
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-main .container .productsContainer ul li .card .card--data img {
-    width: 5rem;
-    height: 5rem;
-}
-
-main .container .productsContainer ul li .card .card--buttons {
-    /* background-color: red; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 8%;
-}
-
-main .container .productsContainer ul li .card .card--buttons button {
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-main .container .productsContainer ul li .card .card--buttons .editProduct {
-    background-color: #F16767;
-}
-main .container .productsContainer ul li .card .card--buttons .deleteProduct {
-    background-color: #9A0680;
-}
-
-main .container .productsContainer ul li .card .card--buttons button:disabled {
-    background-color: transparent;
-    border: none;
-    color: transparent;
-    font-weight: 600;
-    cursor: default;
-}
+/*# sourceMappingURL=style.css.map */
