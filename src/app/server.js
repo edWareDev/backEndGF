@@ -4,6 +4,7 @@ import { engine } from "express-handlebars";
 import { apiRouter } from "../routers/api.router.js";
 import { viewsRouter } from "../routers/views.router.js";
 import { conectar } from "../database/mongoose.js";
+import session from '../middlewares/session.js'
 import cors from "cors";
 // import { Server as SocketIOServer } from 'socket.io'
 // import { chatsManager } from "../dao/mongoose.chats.manager.js";
@@ -16,6 +17,8 @@ app.set('view engine', 'handlebars')
 
 app.use(express.static('./public'))
 app.use(express.json())
+
+app.use(session)
 
 app.use('/api', apiRouter)
 app.use('/', viewsRouter)

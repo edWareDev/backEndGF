@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { usersRouter } from "./API/users.router.js";
+import { customersRouter } from "./API/customers.router.js";
 
 export const apiRouter = Router();
 
-apiRouter.use('/users', usersRouter)
+apiRouter.use('/customers', customersRouter)

@@ -11,12 +11,21 @@
             </div>
         </a>
         <h2>USUARIOS CON SESIÓN</h2>
-        <a id="exportXLS" href="./downloads/{{xlsName}}.xlsx" download>
+        {{#if hayCustomers}}
+        <a id="exportXLS" href="./descargarregistro" download="">
             <span class="material-symbols-outlined">
                 download
             </span>
             <h3><span>EXPORTAR</span> DATOS</h3>
         </a>
+        {{else}}
+        <a id="exportXLS" href="">
+            <span class="material-symbols-outlined">
+                download
+            </span>
+            <h3><span>EXPORTAR</span> DATOS</h3>
+        </a>
+        {{/if}}
     </div>
 </header>
 <main>
@@ -32,18 +41,19 @@
                     <th style="width: 31%">DIRECCIÓN / DISTRITO / PROVINCIA / DEPARTAMENTO</th>
                 </tr>
             </thead>
-            {{#if hayUsers}}
+            {{#if hayCustomers}}
             <tbody>
-                {{#each allUsers}}
+                {{#each allCustomers}}
                 <tr>
-                    <td>{{this.userName}}</td>
-                    <td>{{this.userDni}}</td>
-                    <td>{{this.userPhone}}</td>
-                    <td>{{this.userGender}}</td>
-                    <td>{{this.userDateOfBirth.day}}/{{this.userDateOfBirth.month}}/{{this.userDateOfBirth.year}}
+                    <td>{{this.customerName}}</td>
+                    <td>{{this.customerDni}}</td>
+                    <td>{{this.customerPhone}}</td>
+                    <td>{{this.customerGender}}</td>
+                    <td>{{this.customerDateOfBirth.day}}/{{this.customerDateOfBirth.month}}/{{this.customerDateOfBirth.year}}
                     </td>
-                    <td>{{this.userAddress.address}}, {{this.userAddress.district}}, {{this.userAddress.state}},
-                        {{this.userAddress.region}}
+                    <td>{{this.customerAddress.address}}, {{this.customerAddress.district}},
+                        {{this.customerAddress.state}},
+                        {{this.customerAddress.region}}
                     </td>
                 </tr>
                 {{/each}}

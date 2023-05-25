@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { MONGODB_CNX_STR } from "../config/database.js";
+import { MONGODB_CNX_STR } from "../config/mongodb.config.js";
 
 export async function conectar() {
     await mongoose.connect(MONGODB_CNX_STR)
