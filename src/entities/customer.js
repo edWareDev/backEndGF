@@ -1,5 +1,5 @@
 export class Customer {
-    constructor({ customerName, customerDni, customerPhone, customerEmail, customerAddress, customerDateOfBirth, customerGender }) {
+    constructor({ customerName, customerDni, customerPhone, customerEmail, customerAddress, customerDateOfBirth, customerGender, customerAuthorization }) {
         this.customerName = customerName;
         this.customerDni = customerDni;
         this.customerPhone = customerPhone;
@@ -17,5 +17,6 @@ export class Customer {
             region: customerAddress?.region
         };
         this.verifiedData = {}
+        this.customerAuthorization = customerAuthorization
     }
 }

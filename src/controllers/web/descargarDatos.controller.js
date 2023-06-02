@@ -24,6 +24,7 @@ export async function descargarDatos(req, res, next) {
                 "DISTRITO": item.customerAddress.district,
                 "PROVINCIA": item.customerAddress.state,
                 "DEPARTAMENTO": item.customerAddress.region,
+                "AUTORIZÓ": item.customerAuthorization
             }));
             await generateXLS(transformandoDataParaXLS, filename);
 

@@ -2,6 +2,7 @@ import { customersManager } from "../../dao/mongoose.customer.manager.js";
 
 export async function postCustomersController(req, res, next) {
     const datosUsuario = req.body;
+    console.log(datosUsuario);
     try {
         const result = await customersManager.addCustomer(datosUsuario);
         console.log(datosUsuario.dni);

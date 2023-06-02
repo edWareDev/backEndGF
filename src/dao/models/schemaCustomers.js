@@ -23,5 +23,6 @@ export const schemaCustomers = new mongoose.Schema({
         },
         required: false
     },
-    verifiedData: { type: Object, required: false }
+    verifiedData: { type: Object, required: false },
+    customerAuthorization: { type: Boolean, required: false }
 }, { versionKey: false });

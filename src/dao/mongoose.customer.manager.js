@@ -35,7 +35,7 @@ class CustomersManager {
                 state: customer?.state,
                 region: customer?.region
             },
-
+            customerAuthorization: customer?.authorization
         })
         newCustomer.verifiedData = await fetchData(newCustomer?.customerDni)
         const findCustomer = await this.#customersDb.findOne({ customerDni: newCustomer.customerDni }).lean();

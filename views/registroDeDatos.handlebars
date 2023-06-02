@@ -39,6 +39,7 @@
                     <th style="width: 6%">GÉNERO</th>
                     <th style="width: 13%"><span>FECHA DE NACIMIENTO</span></th>
                     <th style="width: 31%">DIRECCIÓN / DISTRITO / PROVINCIA / DEPARTAMENTO</th>
+                    <th style="width: 10%">Autorizó</th>
                 </tr>
             </thead>
             {{#if hayCustomers}}
@@ -55,6 +56,7 @@
                         {{this.customerAddress.state}},
                         {{this.customerAddress.region}}
                     </td>
+                    <td>{{this.customerAuthorization}}</td>
                 </tr>
                 {{/each}}
             </tbody>
