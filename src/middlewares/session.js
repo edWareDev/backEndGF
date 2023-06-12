@@ -6,5 +6,8 @@ export default session({
     store: MongoStore.create({ mongoUrl: MONGODB_CNX_STR }),
     saveUninitialized: false,
     resave: false,
-    secret: 'SESSION_SECRET'
+    secret: 'SESSION_SECRET',
+    cookie: {
+        maxAge: 24 * 60 * 60 * 1000 // 24 horas en milisegundos
+    }
 })
