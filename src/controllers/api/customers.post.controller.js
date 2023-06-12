@@ -5,7 +5,6 @@ export async function postCustomersController(req, res, next) {
     console.log(datosUsuario);
     try {
         const result = await customersManager.addCustomer(datosUsuario);
-        console.log(datosUsuario.dni);
         res.json(result);
         console.log('!Datos enviados por POST fueron procesados');
     } catch (error) {

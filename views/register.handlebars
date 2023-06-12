@@ -1,0 +1,48 @@
+<h1>Registro</h1>
+<form action="" id="formRegister">
+    <label for="name">
+        <input type="text" pattern="[A-Za-z ]+" minlength="3" maxlength="30" name="name" id="name" placeholder="Nombres"
+            required oninvalid="this.setCustomValidity('Por favor, completa tus datos correctamente.')"
+            oninput="this.setCustomValidity('')">
+    </label>
+    <label for="lastName">
+        <input type="text" pattern="[A-Za-z ]+" minlength="3" maxlength="30" name="lastName" id="lastName"
+            placeholder="Apellidos" required
+            oninvalid="this.setCustomValidity('Por favor, completa tus datos correctamente.')"
+            oninput="this.setCustomValidity('')">
+    </label>
+    <label for="dni">
+        <input type="text" pattern="\d{8,}" name="dni" id="dni" maxlength=8 placeholder="DNI" required
+            oninvalid="this.setCustomValidity('Por favor, completa tu DNI correctamente.')"
+            oninput="this.setCustomValidity('')">
+    </label>
+    <label for="email">
+        <input type="email" name="email" id="email" placeholder="Correo Electrónico" required>
+    </label>
+    <label for="phone">
+        <input type="tel" name="phone" id="phone" placeholder="Celular" required>
+    </label>
+    <label id="address" for="dir">
+        <label for="inaddress">
+            <input id="inaddress" type="text" name="inaddress" placeholder="Dirección" required>
+        </label>
+        <select class="inv" id="dept" name="dept">
+            <option value="default" disabled>Departamento</option>
+        </select>
+        <select id="prov" name="prov" required>
+            <option value="default" disabled>Provincia</option>
+        </select>
+        <select id="dist" name="dist" required>
+            <option value="default" disabled>Distrito</option>
+        </select>
+    </label>
+    <label id="dob" for="dob">
+        <input type="date" name="dob" id="dob">
+    </label>
+    <label for="password">
+        <input type="password" name="password" id="password" placeholder="Contraseña" required>
+    </label>
+    <button type="submit" id="register">Registrarse</button>
+</form>
+<script src="./js/ubication.js"></script>
+<script src="./js/functions.js"></script>

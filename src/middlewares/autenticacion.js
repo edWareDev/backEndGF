@@ -5,3 +5,10 @@ export function autenticacion(req, res, next) {
         res.redirect('/')
     }
 }
+export function isAutenticated(req, res, next) {
+    if (req.session.user) {
+        res.redirect('/registro')
+    } else {
+        next()
+    }
+}
