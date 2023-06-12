@@ -1,4 +1,3 @@
-console.log('Conectado al login js');
 const formLogin = document.querySelector('#formLogin');
 formLogin.addEventListener('submit', async (e) => {
     e.preventDefault()
