@@ -56,7 +56,11 @@
                         {{this.customerAddress.state}},
                         {{this.customerAddress.region}}
                     </td>
-                    <td>{{this.customerAuthorization}}</td>
+                    {{#if this.customerAuthorization}}
+                    <td>SI</td>
+                    {{else}}
+                    <td>NO</td>
+                    {{/if}}
                 </tr>
                 {{/each}}
             </tbody>
