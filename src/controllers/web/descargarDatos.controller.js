@@ -24,7 +24,8 @@ export async function descargarDatos(req, res, next) {
                 "DISTRITO": item.customerAddress.district,
                 "PROVINCIA": item.customerAddress.state,
                 "DEPARTAMENTO": item.customerAddress.region,
-                "AUTORIZÓ": item.customerAuthorization
+                "AUTORIZÓ": item.customerAuthorization,
+                "DNI-RENIEC": `${item.verifiedData?.nombres} ${item.verifiedData?.apellidoPaterno} ${item.verifiedData?.apellidoMaterno}` || 'NO SE ENCONTRÓ REGISTRO EN RENIEC'
             }));
             await generateXLS(transformandoDataParaXLS, filename);
 

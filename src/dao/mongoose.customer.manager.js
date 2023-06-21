@@ -38,7 +38,6 @@ class CustomersManager {
             customerAuthorization: customer?.authorization
         })
         newCustomer.verifiedData = await fetchData(newCustomer.customerDni)
-        console.log(newCustomer.verifiedData);
         const findCustomer = await this.#customersDb.findOne({ customerDni: newCustomer.customerDni }).lean();
         if (findCustomer) {
             console.log('Se ha encontrado un usuario con el mismo documento');
