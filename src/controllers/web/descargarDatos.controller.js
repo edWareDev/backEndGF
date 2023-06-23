@@ -24,9 +24,11 @@ export async function descargarDatos(req, res, next) {
                 "DISTRITO": item.customerAddress.district,
                 "PROVINCIA": item.customerAddress.state,
                 "DEPARTAMENTO": item.customerAddress.region,
-                "AUTORIZÓ": item.customerAuthorization,
-                "DNI-RENIEC": `${item.verifiedData?.nombres} ${item.verifiedData?.apellidoPaterno} ${item.verifiedData?.apellidoMaterno}` || 'NO SE ENCONTRÓ REGISTRO EN RENIEC'
+                "AUTORIZÓ": item.customerAuthorization ? 'Sí' : 'No',
+                // "DNI-RENIEC": `${item.verifiedData?.nombres} ${item.verifiedData?.apellidoPaterno} ${item.verifiedData?.apellidoMaterno}` || 'NO SE ENCONTRÓ REGISTRO EN RENIEC'
+                "DNI-RENIEC": item.verifiedData ? (item.verifiedData.success ? `${item.verifiedData?.nombres} ${item.verifiedData?.apellidoPaterno} ${item.verifiedData?.apellidoMaterno}` : '--SIN DATOS RENIEC--') : '--SIN DATOS RENIEC--'
             }));
+
             await generateXLS(transformandoDataParaXLS, filename);
 
             const archivoPath = `public/downloads/${filename}.xlsx`;
