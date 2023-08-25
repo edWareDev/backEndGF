@@ -20,7 +20,7 @@ export async function descargarDatos(req, res, next) {
                 "DIA DE NACIMIENTO": item.customerDateOfBirth.day,
                 "MES DE NACIMIENTO": item.customerDateOfBirth.month,
                 "AÑO DE NACIMIENTO": item.customerDateOfBirth.year,
-                "DIRECCIÓN": item.customerAddress.address,
+                "PROYECTO": item.customerAddress.address,
                 "DISTRITO": item.customerAddress.district,
                 "PROVINCIA": item.customerAddress.state,
                 "DEPARTAMENTO": item.customerAddress.region,
