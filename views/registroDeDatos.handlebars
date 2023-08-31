@@ -10,7 +10,7 @@
                 <img src="./img/hrlogo.png" alt="logoGlobalFiber">
             </div>
         </a>
-        <h2>USUARIOS CON SESIÓN</h2>
+        <h2>USUARIOS REGISTRADOS</h2>
         {{#if hayCustomers}}
         <a id="exportXLS" href="./descargarregistro" download="">
             <span class="material-symbols-outlined">
@@ -58,11 +58,11 @@
                         {{this.customerAddress.state}},
                         {{this.customerAddress.region}}
                     </td> --}}
-                    {{#if this.customerAuthorization}}
+                    {{!-- {{#if this.customerAuthorization}} --}}
                     <td>Sí</td>
-                    {{else}}
-                    <td>No</td>
-                    {{/if}}
+                    {{!-- {{else}} --}}
+                    {{!-- <td>No</td> --}}
+                    {{!-- {{/if}} --}}
                 </tr>
                 {{/each}}
             </tbody>
