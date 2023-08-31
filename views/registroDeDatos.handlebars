@@ -33,12 +33,13 @@
         <table>
             <thead>
                 <tr>
-                    <th style="width: 24%"> <span>NOMBRES Y APELLIDOS</span></th>
+                    {{!-- <th style="width: 24%"> <span>NOMBRES Y APELLIDOS</span></th> --}}
                     <th style="width: 6%">DNI</th>
+                    <th style="width: 10%"><span>EMAIL</span></th>
                     <th style="width: 10%"><span>TELÉFONO</span></th>
-                    <th style="width: 6%">GÉNERO</th>
-                    <th style="width: 13%"><span>FECHA DE NACIMIENTO</span></th>
-                    <th style="width: 31%">PROYECTO / DISTRITO / PROVINCIA / DEPARTAMENTO</th>
+                    {{!-- <th style="width: 6%">GÉNERO</th> --}}
+                    {{!-- <th style="width: 13%"><span>FECHA DE NACIMIENTO</span></th> --}}
+                    {{!-- <th style="width: 31%">PROYECTO / DISTRITO / PROVINCIA / DEPARTAMENTO</th> --}}
                     <th style="width: 10%"><span>Autorizó</span></th>
                 </tr>
             </thead>
@@ -46,16 +47,17 @@
             <tbody>
                 {{#each allCustomers}}
                 <tr>
-                    <td>{{this.customerName}}</td>
+                    {{!-- <td>{{this.customerName}}</td> --}}
                     <td>{{this.customerDni}}</td>
+                    <td>{{this.customerEmail}}</td>
                     <td>{{this.customerPhone}}</td>
-                    <td>{{this.customerGender}}</td>
-                    <td>{{this.customerDateOfBirth.day}}/{{this.customerDateOfBirth.month}}/{{this.customerDateOfBirth.year}}
+                    {{!-- <td>{{this.customerGender}}</td> --}}
+                    {{!-- <td>{{this.customerDateOfBirth.day}}/{{this.customerDateOfBirth.month}}/{{this.customerDateOfBirth.year}} --}}
                     </td>
-                    <td>{{this.customerAddress.address}}, {{this.customerAddress.district}},
+                    {{!-- <td>{{this.customerAddress.address}}, {{this.customerAddress.district}},
                         {{this.customerAddress.state}},
                         {{this.customerAddress.region}}
-                    </td>
+                    </td> --}}
                     {{#if this.customerAuthorization}}
                     <td>Sí</td>
                     {{else}}
