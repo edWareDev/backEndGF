@@ -14,19 +14,19 @@ export async function descargarDatos(req, res, next) {
 
             const transformandoDataParaXLS = allCustomers.map((item) => ({
                 "DNI": String(item.customerDni).padStart(8, "0"),
-                "NOMBRE": item.customerName,
+                "NOMBRE": item.verifiedData ? (item.verifiedData.success ? `${item.verifiedData?.nombres} ${item.verifiedData?.apellidoPaterno} ${item.verifiedData?.apellidoMaterno}` : '--SIN DATOS RENIEC--') : '--SIN DATOS RENIEC--',
+                // "NOMBRE": item.customerName,
                 "CELULAR": item.customerPhone,
                 "EMAIL": item.customerEmail,
-                "DIA DE NACIMIENTO": item.customerDateOfBirth.day,
-                "MES DE NACIMIENTO": item.customerDateOfBirth.month,
-                "AÑO DE NACIMIENTO": item.customerDateOfBirth.year,
+                // "DIA DE NACIMIENTO": item.customerDateOfBirth.day,
+                // "MES DE NACIMIENTO": item.customerDateOfBirth.month,
+                // "AÑO DE NACIMIENTO": item.customerDateOfBirth.year,
                 "PROYECTO": item.customerAddress.address,
                 "DISTRITO": item.customerAddress.district,
                 "PROVINCIA": item.customerAddress.state,
                 "DEPARTAMENTO": item.customerAddress.region,
                 "AUTORIZÓ": item.customerAuthorization ? 'Sí' : 'No',
                 // "DNI-RENIEC": `${item.verifiedData?.nombres} ${item.verifiedData?.apellidoPaterno} ${item.verifiedData?.apellidoMaterno}` || 'NO SE ENCONTRÓ REGISTRO EN RENIEC'
-                "DNI-RENIEC": item.verifiedData ? (item.verifiedData.success ? `${item.verifiedData?.nombres} ${item.verifiedData?.apellidoPaterno} ${item.verifiedData?.apellidoMaterno}` : '--SIN DATOS RENIEC--') : '--SIN DATOS RENIEC--'
             }));
 
             await generateXLS(transformandoDataParaXLS, filename);
